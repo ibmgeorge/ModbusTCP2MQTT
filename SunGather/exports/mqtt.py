@@ -46,8 +46,8 @@ class export_mqtt(object):
         if self.mqtt_config['homeassistant']:
             for ha_sensor in config.get('ha_sensors'):
                 if not inverter.validateRegister(ha_sensor['register']):
-                    logging.error(f"MQTT: Configured to use {ha_sensor['register']} but not configured to scrape this register")
-                    return False
+                    logging.info(f"MQTT: Configured to use {ha_sensor['register']} but not configured to scrape this register")
+                    # return False
                 else:
                     self.ha_sensors.append(ha_sensor)
     
